@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taskapp/utilities/category_card.dart';
+import 'package:taskapp/utilities/doctor_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -71,10 +73,19 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     //animation or cute picture
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.deepPurple[200],
+                    // Container(
+                    //   height: 100,
+                    //   width: 100,
+                    //   color: Colors.deepPurple[200],
+                    // ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(50.0),
+                      child: Image.asset(
+                        'assets/images/sketch.jpg',
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     const SizedBox(
                       width: 20,
@@ -159,32 +170,75 @@ class _HomePageState extends State<HomePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    color: Colors.deepPurple[100],
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'assets/icons/tooth.png',
-                          height: 50,
-                        ),
-                        const Text('Dentist'),
-                      ],
+                  CategoryCard(
+                    categoryName: 'Dentist',
+                    iconImagePath: 'assets/icons/tooth.png',
+                  ),
+                  CategoryCard(
+                    categoryName: 'Surgeon',
+                    iconImagePath: 'assets/icons/surgeon.png',
+                  ),
+                  CategoryCard(
+                    categoryName: 'Pills',
+                    iconImagePath: 'assets/icons/pills.png',
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            //doctor list
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Doctor list',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    color: Colors.deepPurple[100],
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          'assets/icons/tooth.png',
-                          height: 50,
-                        ),
-                        const Text('Dentist'),
-                      ],
+                  Text(
+                    'See all',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.bold,
                     ),
-                  )
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            //doctors list card
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  DoctorCard(
+                    doctorImagePath: 'assets/images/doctor_1.jpg',
+                    doctorName: 'Dr. Raja Yadav',
+                    doctorProfession: 'Therapist',
+                    rating: '4',
+                  ),
+                  DoctorCard(
+                    doctorImagePath: 'assets/images/doctor_2.jpg',
+                    doctorName: 'Dr. Raja Yadav',
+                    doctorProfession: 'Therapist',
+                    rating: '4',
+                  ),
+                  DoctorCard(
+                    doctorImagePath: 'assets/images/doctor_3.jpg',
+                    doctorName: 'Dr. Raja Yadav',
+                    doctorProfession: 'Therapist',
+                    rating: '4',
+                  ),
                 ],
               ),
             )
