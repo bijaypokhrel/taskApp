@@ -6,11 +6,13 @@ class DoctorCard extends StatelessWidget {
   final String doctorName;
   final String doctorProfession;
 
-  DoctorCard(
-      {required this.doctorImagePath,
+  const DoctorCard(
+      {Key? key,
+      required this.doctorImagePath,
       required this.doctorName,
       required this.doctorProfession,
-      required this.rating});
+      required this.rating})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

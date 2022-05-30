@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:taskapp/utilities/category_card.dart';
-import 'package:taskapp/utilities/doctor_card.dart';
+import 'package:taskapp/Screens/home/components/category_card.dart';
+import 'package:taskapp/Screens/home/components/doctor_card.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,11 +165,11 @@ class _HomePageState extends State<HomePage> {
               height: 25,
             ),
             //horizontal list view
-            Container(
+            SizedBox(
               height: 80,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
+                children: const [
                   CategoryCard(
                     categoryName: 'Dentist',
                     iconImagePath: 'assets/icons/tooth.png',
@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
+                children: const [
                   DoctorCard(
                     doctorImagePath: 'assets/images/doctor_1.jpg',
                     doctorName: 'Dr. Raja Yadav',
